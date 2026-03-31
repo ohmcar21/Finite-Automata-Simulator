@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finite Automata Simulator — Learn &amp; Explore</title>
+  <meta name="description" content="An interactive educational guide to Finite Automata Theory. Learn about DFA, NFA, states, transitions, and run the simulator.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="16" cy="16" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="16" cy="16" r="4" fill="currentColor"/>
+        </svg>
+        <span>Automata Simulator</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#dfa">DFA</a></li>
+        <li><a href="#nfa">NFA</a></li>
+        <li><a href="#comparison">Compare</a></li>
+        <li><a href="simulator.html" class="nav-cta">Launch Simulator →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Theory of Computation</span>
+      <h1>Finite Automata<br><span class="hero-accent">Simulator</span></h1>
+      <p class="hero-subtitle">An interactive tool to design, visualize, and simulate<br>Deterministic &amp; Non-Deterministic Finite Automata.</p>
+      <div class="hero-actions">
+        <a href="simulator.html" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Run the Simulator
+        </a>
+        <a href="#concepts" class="btn btn-ghost btn-lg">Learn the Basics ↓</a>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="hero-node n1">q₀</div>
+      <div class="hero-edge e1">
+        <span>a</span>
+        <svg viewBox="0 0 120 2"><line x1="0" y1="1" x2="120" y2="1" stroke="currentColor" stroke-width="1.5"/><polygon points="115,0 120,1 115,2" fill="currentColor"/></svg>
+      </div>
+      <div class="hero-node n2">q₁</div>
+      <div class="hero-edge e2">
+        <span>b</span>
+        <svg viewBox="0 0 120 2"><line x1="0" y1="1" x2="120" y2="1" stroke="currentColor" stroke-width="1.5"/><polygon points="115,0 120,1 115,2" fill="currentColor"/></svg>
+      </div>
+      <div class="hero-node n3 accept">q₂</div>
+    </div>
+  </header>
+
+  <!-- ========== WHAT IS AUTOMATA THEORY ========== -->
+  <section class="section" id="concepts">
+    <div class="section-inner">
+      <span class="section-label">Foundation</span>
+      <h2 class="section-title">What is Automata Theory?</h2>
+      <p class="section-desc">Automata Theory is a branch of theoretical computer science that studies abstract computing devices called <strong>automata</strong>. It forms the mathematical foundation for understanding what computers can and cannot do, and is essential for compiler design, pattern matching, and formal language processing.</p>
+
+      <div class="info-grid">
+        <!-- Card 1 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Finite Automaton</h3>
+          <p>A mathematical model of computation with a finite number of states. It reads an input string symbol by symbol and either <strong>accepts</strong> or <strong>rejects</strong> it.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>States &amp; Transitions</h3>
+          <p><strong>States</strong> represent configurations of the machine. <strong>Transitions</strong> are rules that move the machine from one state to another based on the input symbol being read.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          </div>
+          <h3>Alphabet &amp; Input</h3>
+          <p>The <strong>alphabet (Σ)</strong> is a finite set of symbols the automaton can read. An <strong>input string</strong> is a sequence of symbols from this alphabet that the automaton processes.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Start State</h3>
+          <p>The <strong>start state (q₀)</strong> is the initial state where the automaton begins processing the input. Every FA has exactly one start state, usually indicated by an incoming arrow.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Accept (Final) State</h3>
+          <p>An <strong>accept state</strong> (or final state) means the input is recognized by the automaton. If processing ends in an accept state, the string is <strong>accepted</strong>; otherwise it is <strong>rejected</strong>.</p>
+        </div>
+        <!-- Card 6 -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </div>
+          <h3>Transition Function (δ)</h3>
+          <p>The <strong>transition function δ</strong> defines the rules: given a current state and input symbol, it determines the next state. It is the "program" that drives the automaton.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FORMAL DEFINITION ========== -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <span class="section-label">Formal Definition</span>
+      <h2 class="section-title">A Finite Automaton is a 5-tuple</h2>
+      <div class="formal-block">
+        <code>M = ( Q, Σ, δ, q₀, F )</code>
+        <ul>
+          <li><strong>Q</strong> — Finite set of states</li>
+          <li><strong>Σ</strong> — Finite alphabet (input symbols)</li>
+          <li><strong>δ</strong> — Transition function</li>
+          <li><strong>q₀</strong> — Start state (q₀ ∈ Q)</li>
+          <li><strong>F</strong> — Set of accept/final states (F ⊆ Q)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DFA SECTION ========== -->
+  <section class="section" id="dfa">
+    <div class="section-inner">
+      <span class="section-label">Type 1</span>
+      <h2 class="section-title">DFA — Deterministic Finite Automaton</h2>
+      <p class="section-desc">A DFA processes input one symbol at a time, making exactly one move at each step. There is no ambiguity — the next state is always uniquely determined.</p>
+
+      <div class="two-col">
+        <div class="rules-card">
+          <h3>Rules &amp; Restrictions</h3>
+          <ul class="rules-list">
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Exactly <strong>one transition</strong> per symbol from every state</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-no">✗</span>
+              <span><strong>No ε (epsilon)</strong> transitions allowed</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Behavior is fully <strong>deterministic</strong> — one unique path</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Every state must have a transition for <strong>every symbol</strong> in Σ</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Transition function: <code>δ : Q × Σ → Q</code></span>
+            </li>
+          </ul>
+        </div>
+        <div class="diagram-card">
+          <h3>DFA Example</h3>
+          <p class="diagram-caption">Accepts strings ending with <code>ab</code> over Σ = {a, b}</p>
+          <div class="diagram-visual">
+            <div class="dg-row">
+              <div class="dg-state dg-start">
+                <span class="dg-arrow-in">→</span>
+                q₀
+              </div>
+              <div class="dg-trans">
+                <span class="dg-label">a</span>
+                <div class="dg-line"></div>
+                <span class="dg-arrow">→</span>
+              </div>
+              <div class="dg-state">q₁</div>
+              <div class="dg-trans">
+                <span class="dg-label">b</span>
+                <div class="dg-line"></div>
+                <span class="dg-arrow">→</span>
+              </div>
+              <div class="dg-state dg-accept">q₂</div>
+            </div>
+            <div class="dg-self-loops">
+              <div class="dg-self">
+                <span>b</span>
+                <svg viewBox="0 0 40 30"><path d="M10,25 Q20,-5 30,25" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="28,22 32,26 27,27" fill="currentColor"/></svg>
+                <span class="dg-self-target">q₀ → q₀</span>
+              </div>
+              <div class="dg-self">
+                <span>a</span>
+                <svg viewBox="0 0 40 30"><path d="M10,25 Q20,-5 30,25" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="28,22 32,26 27,27" fill="currentColor"/></svg>
+                <span class="dg-self-target">q₁ → q₁</span>
+              </div>
+              <div class="dg-self">
+                <span>a → q₁</span>
+              </div>
+            </div>
+            <div class="dg-table">
+              <table>
+                <thead>
+                  <tr><th>State</th><th>a</th><th>b</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>→ q₀</td><td>q₁</td><td>q₀</td></tr>
+                  <tr><td>q₁</td><td>q₁</td><td>q₂</td></tr>
+                  <tr><td>*q₂</td><td>q₁</td><td>q₀</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NFA SECTION ========== -->
+  <section class="section section-dark" id="nfa">
+    <div class="section-inner">
+      <span class="section-label">Type 2</span>
+      <h2 class="section-title">NFA — Non-Deterministic Finite Automaton</h2>
+      <p class="section-desc">An NFA can be in multiple states simultaneously. It explores all possible paths and accepts the input if <em>any</em> path leads to an accept state.</p>
+
+      <div class="two-col">
+        <div class="rules-card">
+          <h3>Rules &amp; Characteristics</h3>
+          <ul class="rules-list">
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span><strong>Multiple transitions</strong> allowed for the same symbol</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span><strong>ε (epsilon)</strong> transitions allowed — move without reading input</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Behavior is <strong>non-deterministic</strong> — multiple paths explored</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>States may have <strong>zero transitions</strong> for some symbols</span>
+            </li>
+            <li>
+              <span class="rule-icon rule-yes">✓</span>
+              <span>Transition function: <code>δ : Q × (Σ ∪ {ε}) → P(Q)</code></span>
+            </li>
+          </ul>
+        </div>
+        <div class="diagram-card">
+          <h3>NFA Example</h3>
+          <p class="diagram-caption">Accepts strings containing <code>ab</code> as a substring over Σ = {a, b}</p>
+          <div class="diagram-visual">
+            <div class="dg-row">
+              <div class="dg-state dg-start">
+                <span class="dg-arrow-in">→</span>
+                q₀
+              </div>
+              <div class="dg-trans">
+                <span class="dg-label">a</span>
+                <div class="dg-line"></div>
+                <span class="dg-arrow">→</span>
+              </div>
+              <div class="dg-state">q₁</div>
+              <div class="dg-trans">
+                <span class="dg-label">b</span>
+                <div class="dg-line"></div>
+                <span class="dg-arrow">→</span>
+              </div>
+              <div class="dg-state dg-accept">q₂</div>
+            </div>
+            <div class="dg-self-loops">
+              <div class="dg-self">
+                <span>a, b</span>
+                <svg viewBox="0 0 40 30"><path d="M10,25 Q20,-5 30,25" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="28,22 32,26 27,27" fill="currentColor"/></svg>
+                <span class="dg-self-target">q₀ → q₀</span>
+              </div>
+              <div class="dg-self">
+                <span>a, b</span>
+                <svg viewBox="0 0 40 30"><path d="M10,25 Q20,-5 30,25" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="28,22 32,26 27,27" fill="currentColor"/></svg>
+                <span class="dg-self-target">q₂ → q₂</span>
+              </div>
+            </div>
+            <div class="dg-nfa-note">
+              <strong>Key difference:</strong> q₀ on 'a' goes to <em>both</em> q₀ and q₁ simultaneously — non-determinism!
+            </div>
+            <div class="dg-table">
+              <table>
+                <thead>
+                  <tr><th>State</th><th>a</th><th>b</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>→ q₀</td><td>{q₀, q₁}</td><td>{q₀}</td></tr>
+                  <tr><td>q₁</td><td>∅</td><td>{q₂}</td></tr>
+                  <tr><td>*q₂</td><td>{q₂}</td><td>{q₂}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON ========== -->
+  <section class="section" id="comparison">
+    <div class="section-inner">
+      <span class="section-label">Side by Side</span>
+      <h2 class="section-title">DFA vs NFA Comparison</h2>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>DFA</th>
+              <th>NFA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Transitions per symbol</td>
+              <td>Exactly 1</td>
+              <td>0, 1, or many</td>
+            </tr>
+            <tr>
+              <td>ε-transitions</td>
+              <td>Not allowed</td>
+              <td>Allowed</td>
+            </tr>
+            <tr>
+              <td>Determinism</td>
+              <td>Deterministic</td>
+              <td>Non-deterministic</td>
+            </tr>
+            <tr>
+              <td>Transition function</td>
+              <td><code>δ : Q × Σ → Q</code></td>
+              <td><code>δ : Q × (Σ ∪ {ε}) → P(Q)</code></td>
+            </tr>
+            <tr>
+              <td>Ease of design</td>
+              <td>Harder</td>
+              <td>Easier</td>
+            </tr>
+            <tr>
+              <td>Implementation</td>
+              <td>Simple</td>
+              <td>Requires backtracking / subset construction</td>
+            </tr>
+            <tr>
+              <td>Expressive power</td>
+              <td colspan="2" style="text-align:center;"><strong>Equivalent</strong> — both recognize regular languages</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="section section-cta" id="cta">
+    <div class="section-inner cta-content">
+      <h2>Ready to build your own<br>Finite Automaton?</h2>
+      <p>Design states, define transitions, and simulate input strings — all in your browser.</p>
+      <a href="simulator.html" class="btn btn-primary btn-xl" id="launchSimulatorBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Run the Simulator
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>Finite Automata Simulator — Theory of Computation Project</p>
+  </footer>
+
+  <!-- ========== Scroll Animations ========== -->
+  <script>
+    // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer — reveal sections on scroll
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.info-card, .rules-card, .diagram-card, .formal-block, .comparison-table-wrap, .cta-content').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
