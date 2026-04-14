@@ -11,7 +11,9 @@ Built as a Theory of Computation project.
 - **Educational Landing Page** — Learn about automata theory, states, transitions, alphabets, and the formal 5-tuple definition before using the simulator
 - **DFA & NFA Support** — Switch between deterministic and non-deterministic modes
 - **Dynamic State Generation** — Configure any number of states and alphabet symbols
-- **Transition Table** — Fill in transitions via an auto-generated table
+- **Transition Table** — Fill in transitions via an auto-generated table and copy it to the clipboard
+- **Preset Automata** — Load ready-made DFA/NFA examples in one click
+- **NFA ε-Transitions** — Support epsilon transitions in NFA mode
 - **Graph Visualization** — Interactive state diagram powered by [vis-network](https://visjs.github.io/vis-network/docs/network/)
 - **Step-by-Step Simulation** — Run input strings and see each δ transition traced in real time
 - **Accept/Reject Output** — Instant visual feedback on whether the input string is accepted or rejected
